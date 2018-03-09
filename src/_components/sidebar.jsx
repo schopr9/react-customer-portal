@@ -1,39 +1,32 @@
-import {Navbar, Nav, NavItem, Button, Glyphicon} from 'react-bootstrap';
+import React from 'react';
+import Sidebar from 'react-sidebar';
 
-import React, {Component} from 'react';
+class BootSidebar extends React.Component {
+  constructor(props) {
+    super(props);
 
-import Sidebar from 'react-bootstrap-sidebar';
-
-class Example extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-          isVisible: false,
-        };
+    this.state = {
+      sidebarOpen: false
     }
 
-    updateModal(isVisible) {
-        this.state.isVisible = isVisible;
-      this.forceUpdate();
-    }
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
 
-    render() {
-        return (
-              <div>
-                  <Button bsStyle="primary" onClick={ () => this.updateModal(true) }><Glyphicon glyph="menu-hamburger"/></Button>
-                  <Sidebar side='left' isVisible={ this.state.isVisible } onHide={ () => this.updateModal(false) }>
-                    <Nav>
-                      <NavItem href="#">Link 1</NavItem>
-                      <NavItem href="#">Link 2</NavItem>
-                      <NavItem href="#">Link 3</NavItem>
-                      <NavItem href="#">Link 4</NavItem>
-                    </Nav>
-                  </Sidebar>
-              </div>
-        );
-    }
+  onSetSidebarOpen(open) {
+    this.setState({sidebarOpen: open});
+  }
+
+  render() {
+    var sidebarContent = <b>Sidebar content</b>;
+
+    return (
+      <Sidebar sidebar={sidebarContent}
+               open={this.state.sidebarOpen}
+               onSetOpen={this.onSetSidebarOpen}>
+        <b>Main content</b>
+      </Sidebar>
+    );
+  }
 };
 
-export default Example;
+export default BootSidebar;

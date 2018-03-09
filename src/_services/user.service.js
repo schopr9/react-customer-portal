@@ -11,13 +11,16 @@ export const userService = {
 };
 
 function login(username, password) {
+    let base64encodedData = new Buffer(username + ':' + password).toString('base64');
     const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        method: 'GET',
+        headers: { 
+            'content-type': 'application/json',
+            'Authorization': 'Basic ' + base64encodedData   
+         }
     };
 
-    return fetch('/users/authenticate', requestOptions)
+    return fetch('/api/payables/authenticate', requestOptions)
         .then(response => {
             if (!response.ok) { 
                 return Promise.reject(response.statusText);

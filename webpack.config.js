@@ -28,6 +28,16 @@ module.exports = {
         inject: 'body'
     })],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            "/api/payables/authenticate":{
+                target:"http://localhost:3000/",
+                secure:"false"
+            },
+            "/users/*" :{
+               target:"http://localhost:3000/", 
+               secure:"false" 
+            }
+        },
     }
 }

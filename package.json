@@ -5,18 +5,23 @@
     "type": "git",
     "url": "https://github.com/cornflourblue/react-redux-registration-login-example.git"
   },
-  "license": "MIT",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "webpack-dev-server --open"
   },
   "dependencies": {
     "history": "^4.6.3",
+    "i18next": "^10.5.0",
+    "i18next-browser-languagedetector": "^2.1.0",
+    "i18next-xhr-backend": "^1.5.1",
     "react": "^16.0.0",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-sidebar": "0.0.1",
     "react-dom": "^16.0.0",
+    "react-i18next": "^7.4.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
+    "react-sidebar": "^2.3.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"
